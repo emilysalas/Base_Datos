@@ -34,6 +34,49 @@ Se desea crear una aplicación para la gestión de una tienda informática:
 #### 🗂️ Diagrama conceptual a mano
 <img width="461" height="454" alt="image" src="https://github.com/user-attachments/assets/80adba4b-faa1-489c-bf7d-ca70fca01885" />
 
+#### 🗂️ Modelo Relacional 
+<img width="601" height="223" alt="image" src="https://github.com/user-attachments/assets/0dee20ac-a6de-4f79-a2be-118ca4e1c87f" />
+
+#### 🗂️ Tabla SQL
+```sql
+CREATE TABLE cliente (
+   codigo VARCHAR(15) PRIMARY KEY,
+   nombre VARCHAR(100) NOT NULL,
+   apellidos VARCHAR(100) NOT NULL,
+   direccion VARCHAR(150) NOT NULL,
+   num_telefono VARCHAR(15) NOT NULL
+);
+CREATE TABLE producto (
+   codigo VARCHAR(15) PRIMARY KEY,
+   descripcion VARCHAR(200) NOT NULL,
+   precio DECIMAL(10,2) NOT NULL,
+   num_existencias INT NOT NULL
+);
+CREATE TABLE proveedor (
+   codigo VARCHAR(15) PRIMARY KEY,
+   nombres VARCHAR(100) NOT NULL,
+   apellidos VARCHAR(100) NOT NULL,
+   direccion VARCHAR(150) NOT NULL,
+   provincia VARCHAR(60) NOT NULL,
+   num_telefono VARCHAR(15) NOT NULL
+);
+CREATE TABLE compra (
+   codigo_cliente VARCHAR(15) NOT NULL,
+   codigo_producto VARCHAR(15) NOT NULL,
+   fecha DATE NOT NULL,
+   PRIMARY KEY (codigo_cliente, codigo_producto, fecha),
+   FOREIGN KEY (codigo_cliente) REFERENCES cliente(codigo),
+   FOREIGN KEY (codigo_producto) REFERENCES producto(codigo)
+);
+CREATE TABLE suministra (
+   codigo_proveedor VARCHAR(15) NOT NULL,
+   codigo_producto VARCHAR(15) NOT NULL,
+   PRIMARY KEY (codigo_proveedor, codigo_producto),
+   FOREIGN KEY (codigo_proveedor) REFERENCES proveedor(codigo),
+   FOREIGN KEY (codigo_producto) REFERENCES producto(codigo)
+);
+
+```
 ---
 
 💡Desea regresar? [🔙](README.md)
