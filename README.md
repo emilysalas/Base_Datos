@@ -18,7 +18,7 @@
 ---
 
 ## 📌 Instrucciones
-> Agregar la evidencia correspondiente para cada uno de los siguientes ejercicios con la **imagen o representación del diagrama Entidad-Relación**.
+> Agregar la evidencia correspondiente para cada uno de los siguientes ejercicios con la **representación del diagrama Entidad-Relación, Modelo Relacional y Tabla SQL**.
 
 ## Ejercicios 📚
 [📖 Ejercicio 1: Sistema de Biblioteca (Nivel Básico)](Ejercicio1_Sistema_de_Biblioteca.md)
