@@ -26,6 +26,38 @@ Una empresa discográfica necesita modelar los datos sobre sus diferentes recurs
 #### 🗂️ Diagrama conceptual a mano
 <img width="885" height="265" alt="image" src="https://github.com/user-attachments/assets/7b3f8a0a-4978-4229-8b51-d1370679d906" />
 
+#### 🗂️ Modelo Relacional 
+<img width="601" height="200" alt="image" src="https://github.com/user-attachments/assets/23f3bb80-84be-42c9-8c1f-b9c11582621e" />
+
+
+#### 🗂️ Tabla SQL
+```sql
+CREATE TABLE manager (
+   id_manager INT PRIMARY KEY,
+   nombre VARCHAR(100) NOT NULL
+);
+CREATE TABLE artista (
+   NIF VARCHAR(15) PRIMARY KEY,
+   nombre_completo VARCHAR(150) NOT NULL,
+   id_manager INT NOT NULL,
+   FOREIGN KEY (id_manager) REFERENCES manager(id_manager)
+);
+CREATE TABLE evento_promocion (
+   id_evento INT PRIMARY KEY,
+   fecha_celebracion DATE NOT NULL,
+   num_asistentes INT NOT NULL
+);
+CREATE TABLE artista_evento (
+   NIF VARCHAR(15) NOT NULL,
+   id_evento INT NOT NULL,
+   PRIMARY KEY (NIF, id_evento),
+   FOREIGN KEY (NIF) REFERENCES artista(NIF),
+   FOREIGN KEY (id_evento) REFERENCES evento_promocion(id_evento)
+);
+
+
+```
+
 ---
 
 💡Desea regresar? [🔙](README.md)
